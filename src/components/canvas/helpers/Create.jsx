@@ -1,7 +1,8 @@
 import { Rnd } from "react-rnd";
-import Card from "./elements/Card";
+// import Card from "./elements/Card";
 import Button from "./elements/Button";
 import CustomImage from "./elements/Image";
+import React from "react";
 
 const createComponent = (elementType, canvasId, classCounter) => {
   let currentStyle = { margin: 0, height: "100%", width: "100%" };
@@ -28,12 +29,25 @@ const createComponent = (elementType, canvasId, classCounter) => {
       break;
   }
 
+  console.log(classCounter);
+
+  const openContextMenu = (e) => {
+    e.preventDefault();
+  };
+
   // Great Project
 
   return (
-    <Rnd bounds="#canvas" key={classCounter} default={defaultSize}>
-      <Element style={currentStyle} />
-    </Rnd>
+    <React.Fragment>
+      <Rnd
+        bounds="#canvas"
+        onContextMenu={(e) => openContextMenu(e)}
+        key={classCounter}
+        default={defaultSize}
+      >
+        <Element style={currentStyle} />
+      </Rnd>
+    </React.Fragment>
   );
 };
 
