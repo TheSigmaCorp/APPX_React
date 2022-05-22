@@ -35,7 +35,7 @@ const createComponent = (elementType, canvasId, classCounter) => {
     e.preventDefault();
   };
 
-  // Great Project
+  // Great Project - another small chnage
 
   return (
     <React.Fragment>
