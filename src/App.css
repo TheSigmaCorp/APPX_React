@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
+body {
+  background-color: lightgrey;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#root {
+  position: absolute;
+  background-color: #e8e8e8;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#canvas {
+  position: relative;
+  left: 150px;
+  top: 25px;
+  height: 95vh;
+  width: calc(100% - 150px);
+  background-color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* editor header */
+.header {
+  position: absolute;
+  top: 0px;
+  height: 25px;
+  width: 100%;
+  border-bottom: 1px solid black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* editor sidebar */
+.sidebar {
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  width: 150px;
+  bottom: 0px;
+  height: 95vh;
+  border-right: 1px solid black;
+}
+
+.sidebar .pages {
+  cursor: pointer;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.sidebar .pages:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.sidebar .elements .elementsHeader {
   color: white;
+  background-color: gray;
+  text-align: center;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.visualElements ul {
+  list-style-type: none;
+  padding-left: 0px !important;
+  margin-left: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.visualElements ul li {
+  color: black;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 5px;
+  font-size: medium;
+}
+
+.visualElements ul li:hover {
+  color: blue;
+}
+
+.visualElements ul li i {
+  margin-right: 7px;
+  margin-left: 5px;
+}
+
+.header .devices {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.header .devices i:hover {
+  color: blue;
+}
+
+.header .projectTitle {
+  color: black;
+  font-weight: 600;
+}
+
+.selected {
+  color: white !important;
+  background: mediumseagreen !important;
+}
+
+#alert {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.dragging {
+  cursor: move !important;
+  user-select: none !important;
+}
+
+.image {
+  position: relative;
+}
+
+.button {
+}
+
+.resizable {
+  position: relative !important;
+  outline: 1px dashed red !important;
+  border: none;
+}
+.resizer {
+  width: 10px;
+  height: 10px;
+  background: blue;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+}
+
+.elementContainer {
+  width: fit-content;
+  height: fit-content;
+}
+
+.properties_popup {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: gray;
+  border: none;
+}
+
+.visualElements .row {
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.visualElements .row .col {
+  background-color: white;
+  margin: 2px;
+  cursor: pointer;
+  font-size: smaller;
+}
+
+.visualElements .row .col:hover {
+  background-color: lightgreen;
+  color: white;
+  /* font-weight: 700; */
 }
