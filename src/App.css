@@ -167,3 +167,7 @@ body {
   color: white;
   /* font-weight: 700; */
 }
+
+.contentMenuBackdrop {
+  opacity: 0.2 !important;
+}

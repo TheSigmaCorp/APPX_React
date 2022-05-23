@@ -2,9 +2,18 @@ import { Rnd } from "react-rnd";
 // import Card from "./elements/Card";
 import Button from "./elements/Button";
 import CustomImage from "./elements/Image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentContext } from "../../../redux/elements";
+import CustomModal from "./context/Modal";
 
-const createComponent = (elementType, canvasId, classCounter) => {
+const CreateAppxComponent = (props) => {
+  const { elementType, classCounter } = props;
+  const [position, setPosition] = useState({
+    pageX: 0,
+    pageY: 0,
+  });
+  const [contextMenu, setContextMenu] = useState(false);
   let currentStyle = { margin: 0, height: "100%", width: "100%" };
   let Element;
   let defaultSize = {
@@ -29,10 +38,15 @@ const createComponent = (elementType, canvasId, classCounter) => {
       break;
   }
 
-  console.log(classCounter);
-
   const openContextMenu = (e) => {
     e.preventDefault();
+    const { pageX, pageY } = e;
+    setPosition({ pageX, pageY });
+    setContextMenu(true);
+  };
+
+  const closeContextMenu = () => {
+    setContextMenu(false);
   };
 
   // Great Project - another small chnage
@@ -47,8 +61,17 @@ const createComponent = (elementType, canvasId, classCounter) => {
       >
         <Element style={currentStyle} />
       </Rnd>
+      {contextMenu ? (
+        <CustomModal
+          elementType={elementType}
+          onClose={closeContextMenu}
+          position={position}
+        ></CustomModal>
+      ) : (
+        ""
+      )}
     </React.Fragment>
   );
 };
 
-export default createComponent;
+export default CreateAppxComponent;
