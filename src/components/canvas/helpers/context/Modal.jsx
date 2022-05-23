@@ -1,36 +1,29 @@
-const Modal = (props) => {
+import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+
+const CustomModal = (props) => {
+  const [show, setShow] = useState(false);
+  const { elementType, position } = props;
+
+  const handleClose = () => {
+    console.log("Hide");
+    setShow(false);
+    props.onClose();
+  };
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleShow();
+  }, [props]);
+
   return (
-    <div className="modal fade" id="exampleModal" tabIndex="-1">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Modal show={show} onHide={handleClose} size="sm" backdropClassName="contentMenuBackdrop">
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      </Modal>
+    </>
   );
 };
 
-export default Modal;
+export default CustomModal;
