@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
 const CustomModal = (props) => {
   const [show, setShow] = useState(false);
-  const { elementType, position } = props;
+  // const { elementType, position } = props;
 
   const handleClose = () => {
     console.log("Hide");

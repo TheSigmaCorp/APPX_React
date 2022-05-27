@@ -2,9 +2,7 @@ import { Rnd } from "react-rnd";
 // import Card from "./elements/Card";
 import Button from "./elements/Button";
 import CustomImage from "./elements/Image";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentContext } from "../../../redux/elements";
+import React, { useState } from "react";
 import CustomModal from "./context/Modal";
 
 const CreateAppxComponent = (props) => {
@@ -49,7 +47,7 @@ const CreateAppxComponent = (props) => {
     setContextMenu(false);
   };
 
-  // Great Project - another small chnage
+  // Great Project - another small change
 
   return (
     <React.Fragment>
